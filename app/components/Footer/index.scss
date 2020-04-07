@@ -1,0 +1,52 @@
+.footer {
+  width: 100%;
+  height: 60px;
+  background: #585455;
+}
+.music {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  margin-left: 12px;
+  border-radius: 4px;
+  &:hover {
+    transition: all linear 0.1s;
+    background: #2F2B2C;
+  }
+}
+
+.split {
+  height: 20px;
+  width: 2px;
+  background: #B0B0B0;
+  margin: 0 10px;
+}
+
+.output {
+  height: 26px;
+  margin: 8px;
+}
+
+.outputText {
+  height: 100%;
+  width: 150px;
+  padding: 0 10px;
+  margin-left: 10px;
+  background: #2F2B2C;
+  border-radius: 4px;
+}
+
+.start {
+  // width: 200px;
+  padding-right: 20px;
+  height: 30px;
+}
+
+.all {
+  padding: 0 20px;
+  background: rgb(123, 81, 185);
+  color: #dadada;
+  border-radius: 4px;
+  transition: all linear 0.1s;
+  border: none;
+}

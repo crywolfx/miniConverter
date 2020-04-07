@@ -54,6 +54,7 @@ export default merge.smart(baseConfig, {
       // Pipe other styles through css modules and append to style.css
       {
         test: /^((?!\.global).)*\.css$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader
@@ -94,6 +95,7 @@ export default merge.smart(baseConfig, {
       // Add SASS support  - compile all other .scss files and pipe it to style.css
       {
         test: /^((?!\.global).)*\.(scss|sass)$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader
@@ -113,6 +115,100 @@ export default merge.smart(baseConfig, {
             options: {
               sourceMap: true
             }
+          }
+        ]
+      },
+      // LESS support
+      {
+        test: /\.global\.(less)$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'less-loader'
+          }
+        ]
+      },
+      {
+        test: /^((?!\.global).)*\.(less)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]__[local]__[hash:base64:5]'
+              },
+              sourceMap: true,
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'less-loader'
+          }
+        ]
+      },
+      // other css, not use css modules
+      {
+        test: /\.css$/,
+        include: /node_modules/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.less$/,
+        include: /node_modules/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'less-loader'
+          }
+        ]
+      },
+      {
+        test: /\.(scss|sass)$/,
+        include: /node_modules/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'sass-loader'
           }
         ]
       },

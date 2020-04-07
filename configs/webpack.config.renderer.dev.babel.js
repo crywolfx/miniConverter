@@ -78,6 +78,7 @@ export default merge.smart(baseConfig, {
       },
       {
         test: /^((?!\.global).)*\.css$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'style-loader'
@@ -104,7 +105,8 @@ export default merge.smart(baseConfig, {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true
+              sourceMap: true,
+              importLoaders: 1
             }
           },
           {
@@ -115,6 +117,7 @@ export default merge.smart(baseConfig, {
       // SASS support - compile all other .scss files and pipe it to style.css
       {
         test: /^((?!\.global).)*\.(scss|sass)$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'style-loader'
@@ -125,6 +128,100 @@ export default merge.smart(baseConfig, {
               modules: {
                 localIdentName: '[name]__[local]__[hash:base64:5]'
               },
+              sourceMap: true,
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ]
+      },
+      // LESS support
+      {
+        test: /\.global\.(less)$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'less-loader'
+          }
+        ]
+      },
+      {
+        test: /^((?!\.global).)*\.(less)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]__[local]__[hash:base64:5]'
+              },
+              sourceMap: true,
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'less-loader'
+          }
+        ]
+      },
+      // other css, not use css modules
+      {
+        test: /\.css$/,
+        include: /node_modules/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.less$/,
+        include: /node_modules/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'less-loader'
+          }
+        ]
+      },
+      {
+        test: /\.(scss|sass)$/,
+        include: /node_modules/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
               sourceMap: true,
               importLoaders: 1
             }

@@ -1,6 +1,5 @@
 import { FunctionComponent } from 'react';
-import HomePage from '../pages/HomePage';
-import CounterPage from '../pages/CounterPage';
+import VideoConvert from '../pages/VideoConvert/index';
 
 interface RouteInfo {
   key: string;
@@ -14,13 +13,7 @@ const routes: { [key: string]: RouteInfo } = {
     key: 'home',
     name: 'home',
     path: '/',
-    component: HomePage
-  },
-  counterPage: {
-    key: 'CounterPage',
-    name: 'CounterPage',
-    path: '/counter',
-    component: CounterPage
+    component: VideoConvert
   }
 };
 

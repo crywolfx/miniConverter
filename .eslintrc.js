@@ -2,7 +2,11 @@ module.exports = {
   extends: 'erb/typescript',
   rules: {
     // A temporary hack related to IDE not resolving correct package.json
-    'import/no-extraneous-dependencies': 'off'
+    'import/no-extraneous-dependencies': 0,
+    'react/jsx-props-no-spreading': 0,
+    'import/prefer-default-export': 0,
+    'jsx-a11y/no-static-element-interactions' : 0,
+    "jsx-a11y/click-events-have-key-events": 0,
   },
   settings: {
     'import/resolver': {

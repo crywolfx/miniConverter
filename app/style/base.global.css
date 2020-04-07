@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  color: #B0B0B0;
+  background: #3D393A;
+  font-size: 12px;
+}
+
+a {
+  text-decoration: none;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* flex */
+.flex {
+  display: flex;
+}
+
+.inflex {
+  display: inline-flex;
+}
+
+.f-fw-w {
+  flex-wrap: wrap;
+}
+.f-fw-n {
+  flex-wrap: nowrap;
+}
+.f-fw-wr {
+  flex-wrap: wrap-reverse;
+}
+
+.f-fd-r {
+  flex-direction: row;
+}
+
+.f-fd-rr {
+  flex-direction: row-reverse;
+}
+
+.f-fd-c {
+  flex-direction: column;
+}
+
+.f-fd-cr {
+  flex-direction: column-reverse;
+}
+
+.f-jc-fs {
+  justify-content: flex-start;
+}
+
+.f-jc-fe {
+  justify-content: flex-end;
+}
+
+.f-jc-sb {
+  justify-content: space-between;
+}
+
+.f-jc-c {
+  justify-content: center;
+}
+
+.f-jc-sa {
+  justify-content: space-around;
+}
+
+.f-ai-fs {
+  align-items: flex-start;
+}
+
+.f-ai-fe {
+  align-items: flex-end;
+}
+
+.f-ai-b {
+  align-items: baseline;
+}
+
+.f-ai-c {
+  align-items: center;
+}
+
+.f-ai-s {
+  align-items: stretch;
+}
+
+.f-ff-rn {
+  flex-flow: row nowrap;
+}
+
+.f-ff-cn {
+  flex-flow: column nowrap;
+}
+
+.f-ac-c {
+  align-content: center;
+}
+
+.f-ac-sb {
+  align-content: space-between;
+}
+
+.f-ac-fs {
+  align-content: flex-start;
+}
+
+.f-ac-fe {
+  align-content: flex-end;
+}
+
+.f-ai-s {
+  align-content: stretch;
+}
+
+.f-ac-sa {
+  align-content: space-around;
+}
+
+.f-fg-1 {
+  flex-grow: 1;
+}
+.f-fs-0 {
+  flex-shrink: 0;
+}
+.f-as-b {
+  align-self: baseline;
+}
+
+.f-as-c {
+  align-self: center;
+}
+
+.f-as-fs {
+  align-self: flex-start;
+}
+
+.f-as-fe {
+  align-self: flex-end;
+}

@@ -6,6 +6,7 @@ import { History } from 'history';
 
 import { Store } from '../reducers/types';
 import Routes from '../routes/router';
+import Header from '../components/Header/index';
 
 type Props = {
   store: Store;
@@ -15,6 +16,7 @@ type Props = {
 const Root = ({ store, history }: Props) => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
+      <Header />
       <Routes />
     </ConnectedRouter>
   </Provider>

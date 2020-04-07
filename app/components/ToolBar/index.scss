@@ -1,0 +1,56 @@
+.container {
+  width: 100%;
+  height: 40px;
+  background: #585455;
+  padding: 0 30px;
+  color: #B0B0B0;
+  font-size: 12px;
+}
+// 添加文件
+.addFile {
+  padding: 0 10px;
+  height: 26px;
+  border-radius: 4px;
+  &:hover {
+    background: #2F2B2C;
+  }
+}
+.addText {
+  padding: 0 10px;
+}
+
+// status
+.status {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 26px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.statusItem {
+  height: 100%;
+  width: 80px;
+  text-align: center;
+  line-height: 26px;
+  background: #3D393A;
+}
+
+.statusCurrent {
+  background: #2F2B2C;
+}
+
+// 转换到
+.transFileToContainer {
+  height: 26px;
+}
+
+.transFileToText {
+  height: 100%;
+  width: 100px;
+  padding: 0 10px;
+  margin-left: 10px;
+  background: #2F2B2C;
+  border-radius: 4px;
+}
