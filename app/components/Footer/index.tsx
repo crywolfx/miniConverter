@@ -1,6 +1,6 @@
 import React from 'react';
 import { CaretDownOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
+import { Button, Switch } from 'antd';
 import { Music } from '../../common/icon';
 
 import style from './index.scss';
@@ -25,8 +25,9 @@ export default function footer() {
           </div>
         </div>
       </div>
-      <div className={`${style.start} flex f-fd-r f-fs-0`}>
-        {/* <span>合并所有视频:</span> */}
+      <div className={`${style.start} flex f-fd-r f-fs-0 f-ai-c`}>
+        <span>合并所有视频:</span>
+        <Switch className={`${style.switch}`} size="small" />
         <Button
           type="primary"
           className={`${style.all} flex f-ai-c f-jc-c pointer`}

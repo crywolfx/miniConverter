@@ -37,16 +37,16 @@
 }
 
 .start {
-  // width: 200px;
   padding-right: 20px;
-  height: 30px;
+}
+
+.switch {
+  margin: 0 20px 0 10px;
 }
 
 .all {
   padding: 0 20px;
-  background: rgb(123, 81, 185);
   color: #dadada;
   border-radius: 4px;
-  transition: all linear 0.1s;
   border: none;
 }

@@ -12,6 +12,7 @@ import TerserPlugin from 'terser-webpack-plugin';
 import baseConfig from './webpack.config.base';
 import CheckNodeEnv from '../internals/scripts/CheckNodeEnv';
 import DeleteSourceMaps from '../internals/scripts/DeleteSourceMaps';
+import theme from '../app/theme';
 
 CheckNodeEnv('production');
 DeleteSourceMaps();
@@ -132,7 +133,11 @@ export default merge.smart(baseConfig, {
             }
           },
           {
-            loader: 'less-loader'
+            loader: 'less-loader',
+            options: {
+              modifyVars: theme,
+              javascriptEnabled: true
+            }
           }
         ]
       },
@@ -154,7 +159,11 @@ export default merge.smart(baseConfig, {
             }
           },
           {
-            loader: 'less-loader'
+            loader: 'less-loader',
+            options: {
+              modifyVars: theme,
+              javascriptEnabled: true
+            }
           }
         ]
       },
@@ -189,7 +198,11 @@ export default merge.smart(baseConfig, {
             }
           },
           {
-            loader: 'less-loader'
+            loader: 'less-loader',
+            options: {
+              modifyVars: theme,
+              javascriptEnabled: true
+            }
           }
         ]
       },

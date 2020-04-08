@@ -13,6 +13,7 @@ import { app, BrowserWindow } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './electron/menu';
+import Use from './electron/common/use';
 
 export default class AppUpdater {
   constructor() {
@@ -92,9 +93,12 @@ const createWindow = async () => {
   const menuBuilder = new MenuBuilder(mainWindow);
   menuBuilder.buildMenu();
 
+  /* eslint-disable no-new */
   // Remove this if your app does not use auto updates
-  // eslint-disable-next-line
   new AppUpdater();
+  // Add Common
+  new Use();
+  /* eslint-enable no-new */
 };
 
 /**

@@ -14,6 +14,7 @@ import { spawn, execSync } from 'child_process';
 import { TypedCssModulesPlugin } from 'typed-css-modules-webpack-plugin';
 import baseConfig from './webpack.config.base';
 import CheckNodeEnv from '../internals/scripts/CheckNodeEnv';
+import theme from '../app/theme';
 
 // When an ESLint server is running, we can't set the NODE_ENV so we'll check if it's
 // at the dev webpack config is not accidentally run in a production environment
@@ -151,7 +152,11 @@ export default merge.smart(baseConfig, {
             }
           },
           {
-            loader: 'less-loader'
+            loader: 'less-loader',
+            options: {
+              modifyVars: theme,
+              javascriptEnabled: true
+            }
           }
         ]
       },
@@ -173,7 +178,11 @@ export default merge.smart(baseConfig, {
             }
           },
           {
-            loader: 'less-loader'
+            loader: 'less-loader',
+            options: {
+              modifyVars: theme,
+              javascriptEnabled: true
+            }
           }
         ]
       },
@@ -208,7 +217,11 @@ export default merge.smart(baseConfig, {
             }
           },
           {
-            loader: 'less-loader'
+            loader: 'less-loader',
+            options: {
+              modifyVars: theme,
+              javascriptEnabled: true
+            }
           }
         ]
       },
