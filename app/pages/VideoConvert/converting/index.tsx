@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FileAddOutlined } from '@ant-design/icons';
+
+import openFile from '../../../common/openFile';
 import style from './index.scss';
 
 export default function Converting() {
-  function addFile() {}
+  const [videoList, setVideoList] = useState([]);
+
+  function addFile() {
+    openFile.openVideo().then(res => {
+      console.log(res);
+    });
+  }
   return (
     <div className={`${style.Converting} relative`}>
       <div

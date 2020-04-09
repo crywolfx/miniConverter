@@ -1,4 +1,4 @@
-import { ipcMain } from 'electron';
+import { ipcMain, dialog } from 'electron';
 // import fs from 'fs';
 // import path from 'path';
 
@@ -24,8 +24,36 @@ export default class OpenFile {
    * @memberof OpenFile
    */
   private addFileEvent(): void {
-    ipcMain.on('openFile', e => {
-      console.log(e);
+    ipcMain.on('openFile', () => {
+      dialog.showOpenDialog({
+        title: '打开文件',
+        defaultPath: 'xxx',
+        properties: ['openFile', 'multiSelections'],
+        filters: [
+          {
+            name: 'video',
+            extensions: [
+              'MP4',
+              'WebM',
+              'Ogg',
+              'mkv',
+              'avi',
+              'MOV',
+              'ASF',
+              'WMV',
+              'NAVI',
+              '3GP',
+              'FLV',
+              'F4V',
+              'RMVB',
+              'HDDVD',
+              'rm',
+              'rmvb',
+              'MP3'
+            ]
+          }
+        ]
+      });
     });
   }
 

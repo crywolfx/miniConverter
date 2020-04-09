@@ -8,6 +8,12 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions' : 0,
     "jsx-a11y/click-events-have-key-events": 0,
     "class-methods-use-this": 0,
+    // promise
+    "promise/catch-or-return": 0,
+    "promise/always-return": 0,
+    "promise/no-nesting": 0
+    // for in for of
+    "no-restricted-syntax": 0,
   },
   settings: {
     'import/resolver': {

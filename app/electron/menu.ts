@@ -51,6 +51,13 @@ export default class MenuBuilder {
         }
       ]).popup({ window: this.mainWindow });
     });
+    if (process.env.HIDE_DEV_TOOLS) {
+      this.mainWindow.webContents.once('devtools-opened', () => {
+        this.mainWindow.webContents.closeDevTools();
+      });
+    } else {
+      this.mainWindow.webContents.openDevTools();
+    }
   }
 
   buildDarwinTemplate() {
