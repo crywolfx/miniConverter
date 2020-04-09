@@ -5,6 +5,8 @@
 import path from 'path';
 import webpack from 'webpack';
 import { dependencies as externals } from '../app/package.json';
+// import ffmpegStatic from 'ffmpeg-static';
+// import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 export default {
   externals: [...Object.keys(externals || {})],
@@ -44,6 +46,15 @@ export default {
       NODE_ENV: 'production'
     }),
 
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.FLUENTFFMPEG_COV': false
+    }),
+    // new CopyWebpackPlugin([
+    //   {
+    //     from: path.resolve(__dirname + '/a.md'),
+    //     to: path.resolve(__dirname+ '/a'),
+    //   }
+    // ]),
   ]
 };
