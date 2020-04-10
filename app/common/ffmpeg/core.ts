@@ -1,15 +1,12 @@
 import ffmpeg from 'fluent-ffmpeg';
-import ffmpegStatic from 'ffmpeg-static';
-import ffprobeStatic from 'ffprobe-static';
+import { mpegStaticPath } from './usePath';
 import { formatSize } from '../utils';
-const childProcess = require("child_process");
-// const pathToFfmpeg = '/Users/zhangzhe/electron/ffmpegDemo/node_modules/ffmpeg-static/ffmpeg';
+// const childProcess = require("child_process");
 
-// childProcess.exec(`${pathToFfmpeg} -h`, () => {
-//     childProcess.spawn(`${pathToFfmpeg}`, ['-i', '/Users/zhangzhe/electron/ffmpegDemo/input.mp4', '-r' ,'24' ,'/Users/zhangzhe/electron/ffmpegDemo/output2.mp4']);
+// childProcess.exec(`${mpegStaticPath} -h`, () => {
+//     childProcess.spawn(`${mpegStaticPath}`, ['-i', '/Users/zhangzhe/electron/ffmpegDemo/input.mp4', '-r' ,'24' ,`/Users/zhangzhe/electron/ffmpegDemo/output${Math.random()*100}.mp4`]);
 // })
-console.log(ffmpegStatic);
-console.log(__dirname);
+ffmpeg.setFfmpegPath(mpegStaticPath);
 export interface InfoFormat {
   size: string;
   type: string;
@@ -23,6 +20,7 @@ export interface FfprobeData extends ffmpeg.FfprobeData {
 
 class Ffmpeg {
   private ffmpeg: typeof ffmpeg;
+
   private placeHolder: string;
 
   constructor() {
@@ -36,7 +34,8 @@ class Ffmpeg {
 
     const videoStream: ffmpeg.FfprobeStream =
       streams.filter(
-        stream => stream.codec_type === 'video' && stream.duration !== this.placeHolder
+        stream =>
+          stream.codec_type === 'video' && stream.duration !== this.placeHolder
       )[0] || {};
     const fileFullName: string = filename.split('/').pop() || '';
     const fileArr: string[] = fileFullName.split('.');
@@ -51,7 +50,7 @@ class Ffmpeg {
   }
 
   public getVideoInfo(url: string) {
-    this.test();
+    this.test(url);
     return new Promise((resolve: (value: FfprobeData) => void, reject) => {
       this.ffmpeg.ffprobe(url, (err, data: ffmpeg.FfprobeData) => {
         if (!err) {
@@ -64,7 +63,13 @@ class Ffmpeg {
     });
   }
 
-  public test () {}
+  public test(url: string) {
+    this.ffmpeg(url)
+      .size('640x?')
+      .aspect('4:3')
+      .autopad()
+      .output('/Users/zhangzhe/electron/ffmpegDemo/output222.mp4');
+  }
 }
 
 export default Ffmpeg;

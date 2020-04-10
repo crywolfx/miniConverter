@@ -4,9 +4,8 @@
 
 import path from 'path';
 import webpack from 'webpack';
-import { dependencies as externals } from '../app/package.json';
-// import ffmpegStatic from 'ffmpeg-static';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import { dependencies as externals } from '../app/package.json';
 
 export default {
   externals: [...Object.keys(externals || {})],
@@ -52,9 +51,9 @@ export default {
     }),
     new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname + '/a.md'),
-        to: path.resolve(__dirname+ '/a'),
+        from: path.resolve(__dirname, '../node_modules/ffmpeg-static/ffmpeg'),
+        to: path.resolve(__dirname, '../app/common/ffmpeg/bin/')
       }
-    ]),
+    ])
   ]
 };
