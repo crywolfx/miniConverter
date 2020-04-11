@@ -1,5 +1,5 @@
 import React from 'react';
-import { VideoConvert } from '../../common/icon';
+import { VideoConvert } from '../Icon/index';
 
 import style from './index.scss';
 

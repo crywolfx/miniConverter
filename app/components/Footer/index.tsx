@@ -1,7 +1,7 @@
 import React from 'react';
 import { CaretDownOutlined } from '@ant-design/icons';
 import { Button, Switch } from 'antd';
-import { Music } from '../../common/icon';
+import { Music } from '../Icon/index';
 
 import style from './index.scss';
 

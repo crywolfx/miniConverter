@@ -3,13 +3,16 @@ import { FileAddOutlined } from '@ant-design/icons';
 
 import openFile from '../../../common/openFile';
 import style from './index.scss';
+import { FfprobeData } from '../../../common/ffmpeg/core';
 
 export default function Converting() {
-  const [videoList, setVideoList] = useState([]);
+  const defaultVideoList: FfprobeData[] = [];
+  const [videoList, setVideoList] = useState(defaultVideoList);
 
   function addFile() {
     openFile.openVideo().then(res => {
       console.log(res);
+      setVideoList(res);
     });
   }
   return (
